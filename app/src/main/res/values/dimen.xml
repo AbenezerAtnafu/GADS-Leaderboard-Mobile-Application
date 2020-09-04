@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--    Text sizes-->
+    <dimen name="textSizeHeader34sp">34sp</dimen>
+    <dimen name="textSizeTitle24sp">24sp</dimen>
+    <dimen name="textSizeSecondary20sp">20sp</dimen>
+
+    <!--    Padding-->
+    <dimen name="padding8dp">8dp</dimen>
+    <dimen name="padding16dp">16dp</dimen>
+    <dimen name="padding24dp">24dp</dimen>
+
+    <!--    Margin-->
+    <dimen name="margin8dp">8dp</dimen>
+    <dimen name="margin16dp">16dp</dimen>
+    <dimen name="margin24dp">24dp</dimen>
+
+
+</resources>
