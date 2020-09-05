@@ -2,14 +2,19 @@ package com.example.gads_leaderboard_mobile_application;
 
 import java.net.URL;
 
-public class Leaders {
+public class Leader {
 
     private String name;
-    private Integer hours;
+    private int hours;
     private String country;
-    private URL badgeUrl;
+    private String badgeUrl;
 
-
+    public Leader(String name, int hours, String country, String badgeUrl){
+        this.name = name;
+        this.hours = hours;
+        this.country = country;
+        this.badgeUrl = badgeUrl;
+    }
 
     public String getName() {
         return name;
@@ -35,11 +40,11 @@ public class Leaders {
         this.country = country;
     }
 
-    public URL getBadge() {
+    public String getBadge() {
         return badgeUrl;
     }
 
-    public void setBadge(URL badge) {
+    public void setBadge(String badge) {
         this.badgeUrl = badge;
     }
 }

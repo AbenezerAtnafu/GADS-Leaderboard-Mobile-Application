@@ -11,18 +11,24 @@ import com.google.android.material.tabs.TabLayout;
 public class LeaderActivity extends AppCompatActivity {
 
 
+    private ViewPager viewPager;
+    private LeaderViewPager leaderViewPager;
+    private TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_leader);
 
-        ViewPager viewPager = findViewById(R.id.view_pager);
+        viewPager = findViewById(R.id.view_pager);
+        tabLayout = findViewById(R.id.tab_layout);
+        leaderViewPager = new LeaderViewPager(getSupportFragmentManager());
 
-        LeaderViewPager leaderViewPager = new LeaderViewPager(getSupportFragmentManager());
+        leaderViewPager.addFragment(new LearningFragment(), "Learning Leader");
+        leaderViewPager.addFragment(new SkillFragment(), "Skill Leader");
+
         viewPager.setAdapter(leaderViewPager);
 
-        TabLayout tabLayout = findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(viewPager);
     }
 }

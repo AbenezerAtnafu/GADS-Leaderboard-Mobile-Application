@@ -5,28 +5,35 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class LeaderViewPager extends FragmentPagerAdapter {
+
+    private final List<Fragment> fragmentList = new ArrayList<>();
+    private final List<String> fragmentTitleList = new ArrayList<>();
 
     public LeaderViewPager(FragmentManager fm){super (fm);}
 
     @Override
     public Fragment getItem(int position) {
-        switch (position){
-            case 1:
-                return new SkillFragment();
-            default:
-                return new LearningFragment();
-        }
+        return fragmentList.get(position);
     }
 
     @Override
     public int getCount() {
-        return 2;
+        return fragmentList.size();
     }
 
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-        return super.getPageTitle(position);
+        return fragmentTitleList.get(position);
+    }
+
+
+    public void addFragment(Fragment fragment, String title){
+        fragmentList.add(fragment);
+        fragmentTitleList.add(title);
     }
 }
