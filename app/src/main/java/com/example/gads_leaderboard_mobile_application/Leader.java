@@ -16,6 +16,12 @@ public class Leader {
         this.badgeUrl = badgeUrl;
     }
 
+    public Leader(String name, int hours, String country){
+        this.name = name;
+        this.hours = hours;
+        this.country = country;
+    }
+
     public String getName() {
         return name;
     }

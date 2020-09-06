@@ -12,15 +12,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
-
+import java.util.List;
 
 
 public class LeaderListAdapter extends RecyclerView.Adapter<LeaderListAdapter.LeaderViewHolder> {
 
-    ArrayList<Leader> leaderList;
+    List<Leader> leaderList;
     Context context;
 
-    public LeaderListAdapter(Context context, ArrayList<Leader> leaderList){
+    public LeaderListAdapter(Context context, List<Leader> leaderList){
         this.context = context;
         this.leaderList = leaderList;
     }
