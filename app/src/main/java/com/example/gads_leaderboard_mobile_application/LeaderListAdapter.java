@@ -17,10 +17,11 @@ import java.util.LinkedList;
 
 public class LeaderListAdapter extends RecyclerView.Adapter<LeaderListAdapter.LeaderViewHolder> {
 
-    private ArrayList<Leader> leaderList;
-    private int numberItems;
+    ArrayList<Leader> leaderList;
+    Context context;
 
-    public LeaderListAdapter(ArrayList<Leader> leaderList){
+    public LeaderListAdapter(Context context, ArrayList<Leader> leaderList){
+        this.context = context;
         this.leaderList = leaderList;
     }
 
@@ -31,10 +32,9 @@ public class LeaderListAdapter extends RecyclerView.Adapter<LeaderListAdapter.Le
 
         Context context = parent.getContext();
         int layoutIdForLeaderListItem = R.layout.leader_list_item;
-        LayoutInflater inflater = LayoutInflater.from(context);
         boolean shouldAttachToParentImmediately = false;
 
-        View view = inflater.inflate(layoutIdForLeaderListItem, parent, shouldAttachToParentImmediately);
+        View view = LayoutInflater.from(context).inflate(layoutIdForLeaderListItem, parent, shouldAttachToParentImmediately);
         LeaderViewHolder leaderViewHolder = new LeaderViewHolder(view);
 
         return leaderViewHolder;
@@ -47,7 +47,7 @@ public class LeaderListAdapter extends RecyclerView.Adapter<LeaderListAdapter.Le
 
     @Override
     public int getItemCount() {
-        return numberItems;
+        return leaderList.size();
     }
 
     class LeaderViewHolder extends RecyclerView.ViewHolder{
@@ -61,12 +61,12 @@ public class LeaderListAdapter extends RecyclerView.Adapter<LeaderListAdapter.Le
 
             nameTextView = (TextView) itemView.findViewById(R.id.name_text_view);
             infoTextView = (TextView) itemView.findViewById(R.id.info_text_view);
-            badgeView = (ImageView) itemView.findViewById(R.id.badge_view);
+            //badgeView = (ImageView) itemView.findViewById(R.id.badge_view);
         }
 
         public void bindView(int position){
             nameTextView.setText(leaderList.get(position).getName());
-            infoTextView.setText(leaderList.get(position).getHours());
+            infoTextView.setText(String.valueOf( leaderList.get(position).getHours()));
         }
 
     }

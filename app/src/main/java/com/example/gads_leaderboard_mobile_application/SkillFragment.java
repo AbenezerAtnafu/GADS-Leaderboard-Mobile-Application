@@ -2,6 +2,7 @@ package com.example.gads_leaderboard_mobile_application;
 
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,28 +21,37 @@ public class SkillFragment extends Fragment {
     }
 
     RecyclerView recyclerView;
+    private ArrayList<Leader> leaders = new ArrayList<>();
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View leaderRootView = inflater.inflate(R.layout.fragment_skill, container, false);
+        View leaderRootView = inflater.inflate(R.layout.fragment_learning, container, false);
 
-//        recyclerView = leaderRootView.findViewById(R.id.recycler_view);
-//        recyclerView.setHasFixedSize(true);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView = leaderRootView.findViewById(R.id.recycler_view);
 
-        final ArrayList<Leader> leaders = new ArrayList<>();
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+
+        recyclerView.setAdapter(new LeaderListAdapter(getContext(), leaders));
+
+        recyclerView.setLayoutManager(layoutManager);
+
+        return leaderRootView;
+
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         leaders.add(new Leader("Abene",20, "Ethiopia", "https://res.cloudinary.com/mikeattara/image/upload/v1596700835/skill-IQ-trimmed.png"));
         leaders.add(new Leader("abuchu",20, "Ethiopia", "https://res.cloudinary.com/mikeattara/image/upload/v1596700835/skill-IQ-trimmed.png"));
         leaders.add(new Leader("ete",20, "Ethiopia", "https://res.cloudinary.com/mikeattara/image/upload/v1596700835/skill-IQ-trimmed.png"));
         leaders.add(new Leader("eco",20, "Ethiopia", "https://res.cloudinary.com/mikeattara/image/upload/v1596700835/skill-IQ-trimmed.png"));
         leaders.add(new Leader("akvakv",20, "Ethiopia", "https://res.cloudinary.com/mikeattara/image/upload/v1596700835/skill-IQ-trimmed.png"));
 
-        //recyclerView.setAdapter(new LeaderListAdapter(leaders));
 
-        return leaderRootView;
 
     }
 
